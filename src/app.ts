@@ -1,5 +1,5 @@
 import express from 'express';
-import userRoutes from './routes/userRoutes';
+import authRoutes from './routes/authRoutes';
 import vehicleRoutes from './routes/vehicleRoutes';
 
 const app = express();
@@ -8,7 +8,7 @@ const app = express();
 app.use(express.json());
 
 // Routes
-app.use('/users', userRoutes);
+app.use('/auth', authRoutes);
 app.use('/vehicles', vehicleRoutes);
 
 export default app;
