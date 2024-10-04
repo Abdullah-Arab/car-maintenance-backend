@@ -5,10 +5,10 @@ const prisma = new PrismaClient();
 
 // Create a new vehicle
 export const createVehicle = async (req: Request, res: Response) => {
-  const { make, model, year, vin, userId } = req.body;
+  const { make, model, year, userId } = req.body;
   try {
     const vehicle = await prisma.vehicle.create({
-      data: { make, model, year, vin, userId }
+      data: { make, model, year, userId }
     });
     res.status(201).json(vehicle);
   } catch (error) {

@@ -28,14 +28,12 @@ async function main() {
         make: 'Toyota',
         model: 'Corolla',
         year: 2020,
-        vin: '123ABC456DEF7890',
       },
       {
         userId: user2.id,
         make: 'Honda',
         model: 'Civic',
         year: 2021,
-        vin: '987XYZ654LMN3210',
       },
     ],
   });
