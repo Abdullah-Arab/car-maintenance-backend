@@ -9,7 +9,7 @@ router.post(
   '/register',
   [
     check('email', 'Please include a valid email').isEmail(),
-    check('username', 'Username is required').not().isEmpty(),
+    // check('username', 'Username is required').not().isEmpty(),
     check('password', 'Password must be 6 or more characters').isLength({ min: 6 }),
   ],
   registerUser

@@ -16,8 +16,25 @@ export const createVehicle = async (req: Request, res: Response) => {
   }
 };
 
-// Get all vehicles
-export const getAllVehicles = async (req: Request, res: Response) => {
-  const vehicles = await prisma.vehicle.findMany();
-  res.status(200).json(vehicles);
+
+// Get All user vehicles
+export const getAllVehicles = async (req: AuthRequest, res: Response) => {
+  try {
+    // Make sure the user ID exists
+    if (!req.userId) {
+      return res.status(400).json({ msg: 'User ID is missing' });
+    }
+
+    // Retrieve vehicles associated with the user
+    const vehicles = await prisma.vehicle.findMany({
+      where: {
+        userId: req.userId, // Get vehicles where the userId matches
+      },
+    });
+
+    res.json(vehicles);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ msg: 'Server error' });
+  }
 };

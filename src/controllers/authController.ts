@@ -13,7 +13,7 @@ export const registerUser = async (req: Request, res: Response) => {
      res.status(400).json({ errors: errors.array() });
   }
 
-  const { email, username, password } = req.body;
+  const { email,  password } = req.body;
 
   try {
     const existingUser = await findUserByEmail(email);
@@ -21,7 +21,7 @@ export const registerUser = async (req: Request, res: Response) => {
        res.status(400).json({ msg: 'User already exists' });
     }
 
-    const newUser = await createUser(email, username, password);
+    const newUser = await createUser(email,  password);
 
     const token = jwt.sign({ userId: newUser.id }, JWT_SECRET, { expiresIn: '30 days' });
 
