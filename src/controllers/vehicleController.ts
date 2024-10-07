@@ -11,7 +11,7 @@ export const createVehicle = async (req: Request, res: Response) => {
       data: { make, model, year, userId }
     });
     res.status(201).json(vehicle);
-  } catch (error) {
+  } catch (error) { 
     res.status(400).json({ error: 'Error creating vehicle' });
   }
 };
