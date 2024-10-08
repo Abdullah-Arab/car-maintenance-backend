@@ -1,6 +1,6 @@
-import express from 'express';
-import authRoutes from './routes/authRoutes';
-import vehicleRoutes from './routes/vehicleRoutes';
+import express from "express";
+import authRoutes from "./routes/authRoutes";
+import vehicleRoutes from "./routes/vehicleRoutes";
 
 const app = express();
 
@@ -8,7 +8,7 @@ const app = express();
 app.use(express.json());
 
 // Routes
-app.use('/auth', authRoutes);
-app.use('/vehicles', vehicleRoutes);
+app.use("/auth", authRoutes);
+app.use("/vehicles", vehicleRoutes);
 
 export default app;
